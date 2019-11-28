@@ -12,6 +12,24 @@ import GameKit
 
 class GameViewController: UIViewController{
     
+    let colorMeaning = ["black", "brown", "red", "orange", "yellow", "green", "blue", "purple", "pink"]
+    
+    @IBOutlet weak var meaningLabel: UILabel!
+    @IBOutlet weak var textColorLabel: UILabel!
+    @IBOutlet weak var yesButton: UIButton!
+    @IBOutlet weak var noButton: UIButton!
+    
+    
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//    }
+    
+    @IBAction func yesButtonTapped(_ sender: Any) {
+        print("yes was tapped")
+    }
+    @IBAction func noButtonTapped(_ sender: Any) {
+        print("no was tapped")
+    }
     
     
 }
