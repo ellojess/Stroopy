@@ -26,10 +26,19 @@ class GameViewController: UIViewController{
     
     @IBAction func yesButtonTapped(_ sender: Any) {
         print("yes was tapped")
+        changeColorMeaning()
     }
     @IBAction func noButtonTapped(_ sender: Any) {
         print("no was tapped")
+        changeColorMeaning()
     }
     
+    
+    // helper function to change color meaning text
+    func changeColorMeaning() {
+        let randomIndex = Int.random(in: 0 ..< colorMeaning.count)
+        meaningLabel.text = colorMeaning[randomIndex]
+    }
+
     
 }
