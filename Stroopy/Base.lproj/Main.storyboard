@@ -89,7 +89,9 @@
                     <connections>
                         <outlet property="meaningLabel" destination="SkU-5O-20K" id="gCA-8r-3B0"/>
                         <outlet property="noButton" destination="puO-Ed-8p5" id="D0r-U7-MBO"/>
+                        <outlet property="scoreLabel" destination="YgS-Ko-Szb" id="1tp-wS-96b"/>
                         <outlet property="textColorLabel" destination="idB-l2-Q5Y" id="Hzt-13-aDr"/>
+                        <outlet property="timerLabel" destination="7ky-Ma-8O7" id="DJY-a8-Yz2"/>
                         <outlet property="yesButton" destination="1kP-6v-bk8" id="LHt-La-g5Y"/>
                     </connections>
                 </viewController>
