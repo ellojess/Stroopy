@@ -13,6 +13,17 @@ import UIKit
 class GameViewController: UIViewController{
     
     let colorMeaning = ["black", "brown", "red", "orange", "yellow", "green", "blue", "purple", "pink"]
+    let colorDict: [String:UIColor] = [
+        "black": UIColor.black,
+        "brown": UIColor.brown,
+        "red": UIColor.red,
+        "orange": UIColor.orange,
+        "yellow": UIColor.yellow,
+        "green": UIColor.green,
+        "blue": UIColor.blue,
+        "purple": UIColor.purple,
+        "pink": UIColor.systemPink
+    ]
     
     @IBOutlet weak var meaningLabel: UILabel!
     @IBOutlet weak var textColorLabel: UILabel!
@@ -22,10 +33,6 @@ class GameViewController: UIViewController{
     var score = 0
     @IBOutlet weak var timerLabel: UILabel!
     
-    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//    }
     
     @IBAction func yesButtonTapped(_ sender: Any) {
         print("yes was tapped")
@@ -71,6 +78,8 @@ class GameViewController: UIViewController{
     }
     
     // update score label
+    // attempt 1: score increases
+    
     func updateScore() {
         if meaningLabel.textColor == textColorLabel.textColor{
             print("yay -- match")
@@ -80,6 +89,18 @@ class GameViewController: UIViewController{
             print("boo -- no match")
         }
     }
+    
+// attempt 2: should be able to access the key value/name of the color in the textcolor label from the dictionary and compare to color meaning label --> score not working 
+//    func updateScore() {
+//
+//        if meaningLabel.textColor == colorDict[textColorLabel.text!] {
+//            print("yay -- match")
+//            score += 1
+//            scoreLabel.text = String(score)
+//        } else {
+//            print("boo -- no match")
+//        }
+//    }
     
     
 }
