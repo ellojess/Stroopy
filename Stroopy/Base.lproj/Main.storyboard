@@ -23,21 +23,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Timer: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAT-7h-1qF">
-                                <rect key="frame" x="249" y="66" width="70" height="29"/>
+                                <rect key="frame" x="21" y="51" width="70" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iGV-FZ-4iX">
-                                <rect key="frame" x="20" y="66" width="71" height="29"/>
+                                <rect key="frame" x="20" y="88" width="71" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0 : 30" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ky-Ma-8O7">
-                                <rect key="frame" x="318" y="66" width="61" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="60" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ky-Ma-8O7">
+                                <rect key="frame" x="99" y="51" width="80" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                 <nil key="textColor"/>
@@ -54,6 +54,7 @@
                                 <rect key="frame" x="0.0" y="755" width="204" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="28"/>
+                                <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <state key="normal" title="Yes"/>
                                 <connections>
                                     <action selector="yesButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rd5-LQ-A3j"/>
@@ -70,25 +71,37 @@
                                 <rect key="frame" x="212" y="755" width="202" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="28"/>
+                                <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <state key="normal" title="No"/>
                                 <connections>
                                     <action selector="noButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RoY-4i-uXC"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YgS-Ko-Szb">
-                                <rect key="frame" x="95" y="66" width="61" height="29"/>
+                                <rect key="frame" x="99" y="88" width="61" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xj2-Tu-FhJ">
+                                <rect key="frame" x="346" y="58" width="31" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <state key="normal" image="arrow.clockwise" catalog="system"/>
+                                <connections>
+                                    <action selector="restartButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mhf-aY-D3w"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="countdownLabel" destination="7ky-Ma-8O7" id="xcx-9W-3vZ"/>
                         <outlet property="meaningLabel" destination="SkU-5O-20K" id="gCA-8r-3B0"/>
                         <outlet property="noButton" destination="puO-Ed-8p5" id="D0r-U7-MBO"/>
+                        <outlet property="restartButton" destination="Xj2-Tu-FhJ" id="Foz-In-AjU"/>
                         <outlet property="scoreLabel" destination="YgS-Ko-Szb" id="1tp-wS-96b"/>
                         <outlet property="textColorLabel" destination="idB-l2-Q5Y" id="Hzt-13-aDr"/>
                         <outlet property="timerLabel" destination="7ky-Ma-8O7" id="DJY-a8-Yz2"/>
@@ -100,4 +113,7 @@
             <point key="canvasLocation" x="144.92753623188406" y="117.85714285714285"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrow.clockwise" catalog="system" width="56" height="64"/>
+    </resources>
 </document>
