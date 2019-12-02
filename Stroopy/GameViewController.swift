@@ -12,17 +12,14 @@ import UIKit
 
 class GameViewController: UIViewController{
     
-    let colorMeaning = ["black", "brown", "red", "orange", "yellow", "green", "blue", "purple", "pink"]
+    let colorMeaning = ["red", "orange", "yellow", "green", "blue", "purple"]
     let colorDict: [String:UIColor] = [
-        "black": UIColor.black,
-        "brown": UIColor.brown,
         "red": UIColor.red,
         "orange": UIColor.orange,
         "yellow": UIColor.yellow,
         "green": UIColor.green,
         "blue": UIColor.blue,
-        "purple": UIColor.purple,
-        "pink": UIColor.systemPink
+        "purple": UIColor.purple
     ]
     
     @IBOutlet weak var meaningLabel: UILabel!
@@ -37,6 +34,15 @@ class GameViewController: UIViewController{
     var timer = Timer()
     var totalTime = 60
     var isTImeRunning = false
+    @IBOutlet weak var startGameButton: UIButton!
+    
+    
+    @IBAction func startGameButtonTapped(_ sender: UIButton) {
+        //insert code
+        sender.isHidden = true
+        changeColorMeaning()
+        changeTextColor()
+    }
     
     
     @IBAction func yesButtonTapped(_ sender: UIButton) {
@@ -62,6 +68,9 @@ class GameViewController: UIViewController{
         
         // restart timer
         countdownLabel.text = String("60")
+        
+        // start game button reappears
+        startGameButton.isHidden = false 
     }
     
     // helper function to run countdown timer
@@ -73,7 +82,6 @@ class GameViewController: UIViewController{
     @objc func updateTimer(){
         totalTime -= 1
         countdownLabel.text = String(totalTime)
-        
     }
     
     
@@ -92,47 +100,27 @@ class GameViewController: UIViewController{
     
     //helper function to change physical color of textColorLabel
     func addColortoText() {
-        
         self.meaningLabel.textColor = colorDict.randomElement()?.value
         self.textColorLabel.textColor = colorDict.randomElement()?.value
     }
     
     // update score label
-    // attempt 1: score increases and decreases
-    
-    /*func updateScore() {
-     if meaningLabel.textColor == textColorLabel.textColor{
-     print("yay -- match")
-     score += 10
-     scoreLabel.text = String(score)
-     } else {
-     print("boo -- no match")
-     score -= 10
-     scoreLabel.text = String(score)
-     }
-     }*/
-    
-    // attempt 2: should be able to access the key value/name of the color in the textcolor label from the dictionary and compare to color meaning label --> score not working
     func updateScore(tappedYes: Bool) {
         
         if textColorLabel.textColor == colorDict[meaningLabel.text!] {
             print("yay -- match")
             if tappedYes{
                 score += 10
-                
             }else{
                 score -= 10
-                
             }
             scoreLabel.text = String(score)
         } else {
             print("boo -- no match")
             if tappedYes{
                 score -= 10
-                
             }else{
                 score += 10
-                
             }
             scoreLabel.text = String(score)
         }
