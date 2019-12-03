@@ -12,12 +12,11 @@ import UIKit
 
 class GameViewController: UIViewController{
     
-    let colorMeaning = ["red", "orange", "yellow", "green", "blue", "purple"]
+    let colorMeaning = ["red", "orange", "yellow", "blue", "purple"]
     let colorDict: [String:UIColor] = [
         "red": UIColor.red,
         "orange": UIColor.orange,
         "yellow": UIColor.yellow,
-        "green": UIColor.green,
         "blue": UIColor.blue,
         "purple": UIColor.purple
     ]
@@ -32,20 +31,26 @@ class GameViewController: UIViewController{
     @IBOutlet weak var restartButton: UIButton!
     @IBOutlet weak var countdownLabel: UILabel!
     var timer = Timer()
-    var totalTime = 60
+    var totalTime = 10
     var isPaused = false
     @IBOutlet weak var startGameButton: UIButton!
+    @IBOutlet weak var gameOverLabel: UILabel!
+
+    override func viewDidLoad() {
+        gameOverLabel.isHidden = true
+    }
     
     
     @IBAction func startGameButtonTapped(_ sender: UIButton) {
-        //insert code
-        sender.isHidden = true
+        sender.isHidden = true // start game button disappears after being tapped
         changeColorMeaning()
         changeTextColor()
         
         isPaused = false
         runTimer()
     }
+    
+    
     
     
     @IBAction func yesButtonTapped(_ sender: UIButton) {
@@ -86,12 +91,13 @@ class GameViewController: UIViewController{
     
     // helper function to decrease timer time
     @objc func updateTimer(){
-        if totalTime > 0 {
+        if totalTime >= 0 {
             let minutes = String(totalTime / 60)
             let seconds = String(totalTime % 60)
             countdownLabel.text = minutes + ":" + seconds
             totalTime -= 1
         }
+        endGame()
     }
     
     
@@ -133,6 +139,16 @@ class GameViewController: UIViewController{
                 score += 10
             }
             scoreLabel.text = String(score)
+        }
+    }
+    
+    //game over function
+    func endGame() {
+        if totalTime == 0 {
+            gameOverLabel.isHidden = false
+            self.view.backgroundColor = UIColor.black
+            meaningLabel.isHidden = true
+            textColorLabel.isHidden = true
         }
     }
     
