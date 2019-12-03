@@ -31,7 +31,9 @@ class GameViewController: UIViewController{
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var restartButton: UIButton!
     @IBOutlet weak var countdownLabel: UILabel!
+    var timer = Timer()
     var totalTime = 60
+    var isPaused = false
     @IBOutlet weak var startGameButton: UIButton!
     
     
@@ -40,6 +42,8 @@ class GameViewController: UIViewController{
         sender.isHidden = true
         changeColorMeaning()
         changeTextColor()
+        
+        isPaused = false
         runTimer()
     }
     
@@ -48,13 +52,11 @@ class GameViewController: UIViewController{
         updateScore(tappedYes: true)
         changeColorMeaning()
         changeTextColor()
-        //        updateTimer()
     }
     @IBAction func noButtonTapped(_ sender: UIButton) {
         updateScore(tappedYes: false)
         changeColorMeaning()
         changeTextColor()
-        //        updateTimer()
     }
     @IBAction func restartButtonTapped(_ sender: UIButton) {
         // reset score back to 0
@@ -66,7 +68,10 @@ class GameViewController: UIViewController{
         changeTextColor()
         
         // restart timer
-        countdownLabel.text = String("60")
+        isPaused = true
+        timer.invalidate()
+        totalTime = 60
+        countdownLabel.text = String("01:00")
         
         // start game button reappears
         startGameButton.isHidden = false
@@ -74,7 +79,9 @@ class GameViewController: UIViewController{
     
     // helper function to run countdown timer
     func runTimer(){
-        var timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(GameViewController.updateTimer), userInfo: nil, repeats: true)
+        isPaused = false
+        
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(GameViewController.updateTimer), userInfo: nil, repeats: true)
     }
     
     // helper function to decrease timer time
@@ -85,8 +92,6 @@ class GameViewController: UIViewController{
             countdownLabel.text = minutes + ":" + seconds
             totalTime -= 1
         }
-//        totalTime -= 1
-//        countdownLabel.text = String(totalTime)
     }
     
     
