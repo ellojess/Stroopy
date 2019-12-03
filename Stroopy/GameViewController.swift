@@ -31,9 +31,7 @@ class GameViewController: UIViewController{
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var restartButton: UIButton!
     @IBOutlet weak var countdownLabel: UILabel!
-    var timer = Timer()
     var totalTime = 60
-    var isTImeRunning = false
     @IBOutlet weak var startGameButton: UIButton!
     
     
@@ -42,6 +40,7 @@ class GameViewController: UIViewController{
         sender.isHidden = true
         changeColorMeaning()
         changeTextColor()
+        runTimer()
     }
     
     
@@ -70,18 +69,24 @@ class GameViewController: UIViewController{
         countdownLabel.text = String("60")
         
         // start game button reappears
-        startGameButton.isHidden = false 
+        startGameButton.isHidden = false
     }
     
     // helper function to run countdown timer
     func runTimer(){
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(GameViewController.updateTimer), userInfo: nil, repeats: true)
+        var timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(GameViewController.updateTimer), userInfo: nil, repeats: true)
     }
     
     // helper function to decrease timer time
     @objc func updateTimer(){
-        totalTime -= 1
-        countdownLabel.text = String(totalTime)
+        if totalTime > 0 {
+            let minutes = String(totalTime / 60)
+            let seconds = String(totalTime % 60)
+            countdownLabel.text = minutes + ":" + seconds
+            totalTime -= 1
+        }
+//        totalTime -= 1
+//        countdownLabel.text = String(totalTime)
     }
     
     
