@@ -37,7 +37,6 @@ class GameViewController: UIViewController{
     @IBOutlet weak var gameOverLabel: UILabel!
 
     override func viewDidLoad() {
-        gameOverLabel.isHidden = true
     }
     
     
