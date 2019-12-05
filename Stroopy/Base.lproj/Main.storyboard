@@ -201,6 +201,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="fPf-9l-fMW"/>
                     <connections>
                         <outlet property="countdownLabel" destination="7ky-Ma-8O7" id="xcx-9W-3vZ"/>
                         <outlet property="meaningLabel" destination="SkU-5O-20K" id="gCA-8r-3B0"/>
@@ -211,22 +212,23 @@
                         <outlet property="textColorLabel" destination="idB-l2-Q5Y" id="Hzt-13-aDr"/>
                         <outlet property="timerLabel" destination="7ky-Ma-8O7" id="DJY-a8-Yz2"/>
                         <outlet property="yesButton" destination="1kP-6v-bk8" id="LHt-La-g5Y"/>
+                        <segue destination="K33-4i-b2e" kind="presentation" identifier="gameOverVCID" id="BUQ-PA-M3i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="144.92753623188406" y="117.85714285714285"/>
+            <point key="canvasLocation" x="243" y="118"/>
         </scene>
-        <!--Game View Controller-->
+        <!--Game Over View Controller-->
         <scene sceneID="Qek-HX-W3d">
             <objects>
-                <viewController id="K33-4i-b2e" customClass="GameViewController" customModule="Stroopy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="gameOverVCID" title="Game Over View Controller" id="K33-4i-b2e" customClass="GameViewController" customModule="Stroopy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UyO-Gl-xFU">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GAME OVER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6IP-Im-DvF">
-                                <rect key="frame" x="20" y="213" width="374" height="103"/>
+                                <rect key="frame" x="20" y="169" width="373.5" height="93"/>
                                 <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="64"/>
                                 <nil key="textColor"/>
@@ -234,8 +236,8 @@
                                 <color key="shadowColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <size key="shadowOffset" width="-2" height="-6"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5x-QL-Gby">
-                                <rect key="frame" x="140" y="471" width="133" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5x-QL-Gby">
+                                <rect key="frame" x="140" y="417" width="133.5" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="9PH-Tr-wKA"/>
                                 </constraints>
@@ -243,11 +245,11 @@
                                 <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <state key="normal" title="Play Again"/>
                                 <connections>
-                                    <action selector="restartButtonTapped:" destination="K33-4i-b2e" eventType="touchUpInside" id="2B9-it-rNw"/>
+                                    <action selector="playAgainButtonTapped:" destination="K33-4i-b2e" eventType="touchUpInside" id="AC4-0t-YYP"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="lgq-wM-EDo">
-                                <rect key="frame" x="115" y="366" width="184" height="32.5"/>
+                                <rect key="frame" x="115" y="312" width="184" height="32.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Scored: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBF-t9-3Bq">
                                         <rect key="frame" x="0.0" y="0.0" width="142.5" height="32.5"/>
@@ -277,15 +279,96 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LsZ-W6-uzo"/>
                     </view>
+                    <navigationItem key="navigationItem" id="PRb-xX-vic"/>
                     <connections>
                         <outlet property="gameOverLabel" destination="6IP-Im-DvF" id="MeA-Zo-stV"/>
-                        <outlet property="restartButton" destination="V5x-QL-Gby" id="Vbc-1W-jg9"/>
+                        <outlet property="playAgainButton" destination="V5x-QL-Gby" id="A7M-fp-0v1"/>
                         <outlet property="scoreLabel" destination="4km-CA-szE" id="gdc-eX-NHA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZWy-cv-kce" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="937.68115942028987" y="117.85714285714285"/>
+            <point key="canvasLocation" x="1017" y="118"/>
+        </scene>
+        <!--levelsViewController-->
+        <scene sceneID="eSG-HL-eWy">
+            <objects>
+                <viewController title="levelsViewController" id="1Ri-Lk-W4k" customClass="GameViewController" customModule="Stroopy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IcI-La-Vfx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEV-o2-E2C">
+                                <rect key="frame" x="202.5" y="247" width="0.0" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="vP4-fK-dPY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3aa-Dr-veo">
+                                <rect key="frame" x="175" y="197" width="65" height="76"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="76" id="eL8-dJ-9ZR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="28"/>
+                                <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <state key="normal" title="Easy"/>
+                                <connections>
+                                    <action selector="yesButtonTapped:" destination="1Ri-Lk-W4k" eventType="touchUpInside" id="4oh-A5-geB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wwn-bR-64k">
+                                <rect key="frame" x="138" y="322" width="138" height="79"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="202" id="ciO-pF-97a"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="28"/>
+                                <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <state key="normal" title="Hard"/>
+                                <connections>
+                                    <action selector="noButtonTapped:" destination="1Ri-Lk-W4k" eventType="touchUpInside" id="nNs-c2-EOb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pgl-mY-5Lp">
+                                <rect key="frame" x="115" y="454" width="184" height="77"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="202" id="eiV-vy-k8Y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="28"/>
+                                <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <state key="normal" title="XTREME"/>
+                                <connections>
+                                    <action selector="noButtonTapped:" destination="1Ri-Lk-W4k" eventType="touchUpInside" id="IEo-CS-QD7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="spT-va-NkY">
+                                <rect key="frame" x="3" y="654" width="408" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="DmK-F6-M2S"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="65"/>
+                                <size key="titleShadowOffset" width="-3" height="-2"/>
+                                <state key="normal" title="START GAME">
+                                    <color key="titleColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="startGameButtonTapped:" destination="1Ri-Lk-W4k" eventType="touchUpInside" id="ENW-0k-PES"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="dEr-s7-9Sn"/>
+                    </view>
+                    <connections>
+                        <outlet property="startGameButton" destination="spT-va-NkY" id="Uy5-AT-jhZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XUP-NL-SeY" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-612" y="118"/>
         </scene>
     </scenes>
     <resources>
