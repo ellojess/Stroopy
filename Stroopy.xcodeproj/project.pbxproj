@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C04B03E123986E520062EE5E /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04B03E023986E520062EE5E /* GameOverViewController.swift */; };
 		C0EAAA0E238BC5EF00D6CC11 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAAA0D238BC5EE00D6CC11 /* GameViewController.swift */; };
 		C0FB83CE2387C5D20022E755 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FB83CD2387C5D20022E755 /* AppDelegate.swift */; };
 		C0FB83D02387C5D20022E755 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FB83CF2387C5D20022E755 /* SceneDelegate.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C04B03E023986E520062EE5E /* GameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
 		C0EAAA0D238BC5EE00D6CC11 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		C0FB83CA2387C5D20022E755 /* Stroopy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stroopy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0FB83CD2387C5D20022E755 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				C0FB83CD2387C5D20022E755 /* AppDelegate.swift */,
 				C0FB83CF2387C5D20022E755 /* SceneDelegate.swift */,
 				C0EAAA0D238BC5EE00D6CC11 /* GameViewController.swift */,
+				C04B03E023986E520062EE5E /* GameOverViewController.swift */,
 				C0FB83D32387C5D20022E755 /* Main.storyboard */,
 				C0FB83D62387C5D40022E755 /* Assets.xcassets */,
 				C0FB83D82387C5D40022E755 /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C04B03E123986E520062EE5E /* GameOverViewController.swift in Sources */,
 				C0FB83CE2387C5D20022E755 /* AppDelegate.swift in Sources */,
 				C0EAAA0E238BC5EF00D6CC11 /* GameViewController.swift in Sources */,
 				C0FB83D02387C5D20022E755 /* SceneDelegate.swift in Sources */,

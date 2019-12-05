@@ -31,10 +31,12 @@ class GameViewController: UIViewController{
     @IBOutlet weak var restartButton: UIButton!
     @IBOutlet weak var countdownLabel: UILabel!
     var timer = Timer()
-    var totalTime = 10
+    var totalTime = 59
     var isPaused = false
     @IBOutlet weak var startGameButton: UIButton!
     @IBOutlet weak var gameOverLabel: UILabel!
+    @IBOutlet weak var playAgainButton: UIButton!
+    
 
     override func viewDidLoad() {
     }
@@ -49,6 +51,11 @@ class GameViewController: UIViewController{
         runTimer()
     }
     
+    @IBAction func playAgainButtonTapped(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+
+        dismiss(animated: true, completion: nil)
+    }
     
     
     
@@ -74,7 +81,7 @@ class GameViewController: UIViewController{
         // restart timer
         isPaused = true
         timer.invalidate()
-        totalTime = 60
+        totalTime = 59
         countdownLabel.text = String("01:00")
         
         // start game button reappears
@@ -144,10 +151,11 @@ class GameViewController: UIViewController{
     //game over function
     func endGame() {
         if totalTime == 0 {
-            gameOverLabel.isHidden = false
-            self.view.backgroundColor = UIColor.black
-            meaningLabel.isHidden = true
-            textColorLabel.isHidden = true
+        performSegue(withIdentifier: "gameOverVCID", sender: nil)
+//            gameOverLabel.isHidden = false
+//            self.view.backgroundColor = UIColor.black
+//            meaningLabel.isHidden = true
+//            textColorLabel.isHidden = true
         }
     }
     
