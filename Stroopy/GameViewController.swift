@@ -35,29 +35,39 @@ class GameViewController: UIViewController{
     var isPaused = false
     @IBOutlet weak var startGameButton: UIButton!
     @IBOutlet weak var gameOverLabel: UILabel!
-    @IBOutlet weak var playAgainButton: UIButton!
+    @IBOutlet weak var instructionsLabel: UILabel!
+    @IBOutlet weak var smallMeaningLabel: UILabel!
+    @IBOutlet weak var downArrowLabel: UILabel!
+    @IBOutlet weak var upArrowLabel: UILabel!
+    @IBOutlet weak var smallTextColorLabel: UILabel!
     
-
+    
     override func viewDidLoad() {
+        gameOverLabel.isHidden = true
     }
     
     
     @IBAction func startGameButtonTapped(_ sender: UIButton) {
         sender.isHidden = true // start game button disappears after being tapped
+        
+        gameOverLabel.isHidden = true
+        meaningLabel.isHidden = false
+        textColorLabel.isHidden = false
+        yesButton.isHidden = false
+        noButton.isHidden = false
+        instructionsLabel.isHidden = false
+        downArrowLabel.isHidden = false
+        upArrowLabel.isHidden = false
+        smallMeaningLabel.isHidden = false
+        smallTextColorLabel.isHidden = false
+        
+        
         changeColorMeaning()
         changeTextColor()
         
         isPaused = false
         runTimer()
     }
-    
-    @IBAction func playAgainButtonTapped(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
-
-        dismiss(animated: true, completion: nil)
-    }
-    
-    
     
     @IBAction func yesButtonTapped(_ sender: UIButton) {
         updateScore(tappedYes: true)
@@ -151,11 +161,18 @@ class GameViewController: UIViewController{
     //game over function
     func endGame() {
         if totalTime == 0 {
-        performSegue(withIdentifier: "gameOverVCID", sender: nil)
-//            gameOverLabel.isHidden = false
-//            self.view.backgroundColor = UIColor.black
-//            meaningLabel.isHidden = true
-//            textColorLabel.isHidden = true
+            gameOverLabel.isHidden = false
+            meaningLabel.isHidden = true
+            textColorLabel.isHidden = true
+            yesButton.isHidden = true
+            noButton.isHidden = true
+            instructionsLabel.isHidden = true
+            downArrowLabel.isHidden = true
+            upArrowLabel.isHidden = true
+            smallMeaningLabel.isHidden = true
+            smallTextColorLabel.isHidden = true
+            
+            restartButton.isHidden = false
         }
     }
     
