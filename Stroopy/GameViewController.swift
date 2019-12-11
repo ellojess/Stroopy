@@ -160,7 +160,7 @@ class GameViewController: UIViewController{
     
     //game over function
     func endGame() {
-        if totalTime == 0 {
+        if totalTime < 0 {
             gameOverLabel.isHidden = false
             meaningLabel.isHidden = true
             textColorLabel.isHidden = true
